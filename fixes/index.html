@@ -1,0 +1,323 @@
+
+<!-- Horisontal-Vertical Menu, https://coursesweb.net/ -->
+<!-- fuck you i use it now -->
+<ul id="menuv"><div>
+     <audio id="audio" controls style="display:none">
+  <source src="../scrollMenu.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+</audio>
+<audio id="audio3" controls style="display:none">
+  <source src="../confirmMenu.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+</audio>
+ <audio id="audio2" controls style="display:none">
+  <source src="../scrollMenu.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+</audio>
+ </div>
+<h2>Da fixes</h2>
+<h2>i guess i will put updates here too lol</h2>
+
+<h1>7/30/2021</h1>
+<h2>SNIPER ENGINE 1.0 PRE-ALPHA IS OUT! (LESS GOOOOOOOOOOO - Da Baby)</h2>
+<h2>update adds:</h2>
+<h2>-current song info in bottom left while playing</h2>
+<h2>-fixed CPU strum lights (they don't light up for like 0.0001 seconds now)</h2>
+<h2>-added key rebind state</h2>
+<h2>-added Performance options menu (so you can get better frames on older chromebook models)</h2>
+
+<h2>SNIPER ENGINE IS OUT! tell me what stuff to put in the engine: pyoyoyo155@gmail.com</h2>
+<h2>v0.2 includes:</h2>
+<h2>-it is i thing now</h2>
+<h2>-CPU strum lights</h2>
+<h2>-song name and diff in pause menu</h2>
+<h2>-ghost tapping/kade engine input</h2>
+<h2>-downscroll and upscroll option</h2>
+
+
+<h1>7/22/2021</h1>
+<h2>ok but seriously now it is fixed lmao</h2>
+
+<h2>the bob mod should exit now when it is suppost to.</h2>
+
+
+<script type="text/javascript"><!--
+// gets all <li> within #menu element
+var menuli = document.getElementById('menuv').getElementsByTagName('li');
+var nrmenuli = menuli.length;
+var oli = [];        // store horisontal menu items
+var crt_oli;         // store current horisontal element
+var vli = [];        // store vertical menu list in within current horisontal element
+var nroli = 0;       // number of horisontal menu items
+var nrvli = 0;       // number of vertical menu lists
+var url_adr = '';    // store the URL address added in the anchor <a> of current navigated list
+
+// traverse $menuli to add the horisontal menus in $oli
+for(var i=0; i<nrmenuli; i++) {
+  if(menuli[i].className == 'oli') {
+    oli.push(menuli[i]);
+  }
+}
+
+var ih = -1;     // to store the index of current horizontal item in $oli
+var iv = -1;    // to store the index of current vertical item in $vli
+
+// accessed on press the Left /Right arrow keys
+// show current horisontal menu
+function showOli(index) {
+  iv = -1;       // reset imdex of vertical menu when moves to other horisontal menu
+  url_adr = '';     // empty this variable
+
+  for(var i=0; i<nroli; i++) {
+    oli[i].className = 'oli';
+  }
+  crt_oli = oli[index];     // store current horisontal element
+  crt_oli.className = 'olishow';      // set class="olishow"
+
+  // if current horisontal menu contains vertical menu, store it in $vli, and display it
+  if(crt_oli.getElementsByTagName('ul').length > 0 && crt_oli.getElementsByTagName('ul')[0].getElementsByTagName('li')) {
+    vli = crt_oli.getElementsByTagName('ul')[0].getElementsByTagName('li');
+    nrvli = vli.length;
+    showVli();     // calls showVli() to set class="vli" to all list in its vertical menu
+  }
+  else {
+    // if current horisontal menu no has vertical list
+    // if contains a link, calls the function setUrlAdr() to add its "href" value in $url_adr
+    if(crt_oli.getElementsByTagName('a').length > 0) setUrlAdr(crt_oli.getElementsByTagName('a')[0]);
+    vli = [];        // empties $vli
+    nrvli = 0;
+  }
+}
+
+// accessed on press the Up /Down arrow keys
+// show current vertical menu
+function showVli(index) {
+  url_adr = '';       // empties this variable
+  if(nrvli > 0) {
+    for(var i=0; i<nrvli; i++) {
+      vli[i].className = 'vli';
+    }
+    if(index >= 0) {
+      vli[index].className = 'vlishow';
+      
+    // if contains a link, calls the function setUrlAdr() to add its "href" value in $url_adr
+    if(vli[index].getElementsByTagName('a').length > 0) setUrlAdr(vli[index].getElementsByTagName('a')[0]);
+    }
+  }
+}
+
+// adds in $url_adr the "href" value of the anchor element <a> passed in "link" parameter
+function setUrlAdr(link) {
+  url_adr = link.href;
+}
+
+// function with code to get the pressed keyboard key
+function KeyCheck(e){
+ // https://coursesweb.net/
+  nroli = oli.length;
+   var keyid = (window.event) ? event.keyCode : e.keyCode;       // get the code of the key pressed
+
+   // modify the index of horisontal /vertical item, calls the indicated function according to pressed key
+   switch(keyid) {
+      // Left
+      case 38:
+        ih--;
+        if(ih < 0) ih = 0;
+        showOli(ih);
+        break;
+      // Up
+      case 38:
+        iv--;
+        if(iv < 0) iv = 0;
+        showVli(iv);
+        break;
+      // Right
+      case 40:
+        ih++;
+        if(ih >= nroli) ih = 0;
+        showOli(ih);
+        break;
+      // Down
+      case 40:
+        iv++;
+        if(iv >= nrvli) iv = 0;
+        showVli(iv);
+      break;
+      // Enter (opens the link)
+      case 13:
+        if(url_adr != '') window.location = url_adr;
+        break;
+   }
+}
+
+// access the KeyCheck() function when a keyboard button is pressed
+document.onkeydown = KeyCheck;
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css"><!--
+#menuv {
+ position:relative;
+ padding:2px;
+}
+
+  /* Properties for horizontal menu */
+#menuv .oli ul, #menuv .olishow ul {
+ display:none;
+ position:absolute;
+ margin:1px auto 1px -8px;
+ background-color:purple;
+ border:1px dashed blue;
+ padding:1px;
+ opacity: 0.5;
+}
+#menuv .olishow {
+ background-color: #dedede;
+ opacity: 0.1;
+}
+
+  /* Properties for vertical menu */
+#menuv .oli ul, #menuv .olishow ul {
+ display:none;
+ position:absolute;
+ margin:1px auto 1px -8px;
+ background-color:#dedede;
+ border:1px dashed blue;
+ padding:1px;
+ opacity: 0.33;
+}
+#menuv li ul li {
+ position:relative;
+ clear:both;
+ width:99%;
+ margin:1px 0;
+ border:none;
+ background-color:#edfeed;
+ padding:1px;
+}
+#menuv li:hover ul, #menuv .olishow ul {
+ display:block;
+}
+
+  /* Links in sub-menu */
+#menuv ul li a {
+ display:block;
+ margin:0;
+ font-weight:normal;
+ padding:1px;
+}
+#menuv ul li a:hover, #menuv ul .vlishow a {
+ background-color:#fefefe;
+ text-decoration:none;
+ font-style:oblique;
+ color:#fb0001;
+}
+
+body {
+  background-image: url('../menuBGBlue.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  opacity: 1.0;
+}
+</style>
+
+	<style type="text/css">
+					body{
+				font-family: 'friday_night_funkinregular';
+							}
+		</style>
+		
+		
+<style>@font-face {
+    font-family: 'friday_night_funkinregular';
+    src: url('../fonts/fridaynightfunkin-regular-webfont.woff2') format('woff2'),
+         url('../fonts/fridaynightfunkin-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}</style>		
+</style>
+
+<script>document.addEventListener('keydown', function(e) {
+  if (e.keyCode == 38) {
+    document.getElementById('audio').play();
+  }
+});</script>
+<script>document.addEventListener('keydown', function(e) {
+  if (e.keyCode == 40) {
+    document.getElementById('audio2').play();
+  }
+});</script>
+<script>document.addEventListener('keydown', function(e) {
+  if (e.keyCode == 13) {
+    document.getElementById('audio3').play();
+  }
+});</script>
+<style>h1 {
+  font-size: 30px;
+}</style>
+<style>h4 {
+  font-size: 35px;
+}</style>
+<style>h2 {
+  font-size: 20px;
+}</style>
+
+<script>if(!localStorage.getItem("firstTime")){
+   document.addEventListener("click", function () {
+    document.body.requestPointerLock();
+}else{
+   null
+}</script>
+
+<script>function old() {
+background-image: url('../bg.png');
+
+}</script>
+
+
+<title>Funkin Online - Friday Night Funkin' online</title>
+<div style="position: relative; width: 250px;">
+  <di  style="position: absolute; top: -8500; right: -1250; width: 100px; text-align:right;">
+    </p class="sticky">up and down arrows to navigate.</p>
+  </div>
+  
+  <div style="position: relative; width: 250px;">
+  <di  style="position: absolute; top: -500; right: -1250; width: 100px; text-align:right;">
+    <p class="sticky"><a href="../sad.png" title="Contact" style="color:black">:(</a></p><div
+  </div>
+  
+  
+  <style></style>

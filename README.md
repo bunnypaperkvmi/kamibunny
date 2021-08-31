@@ -4,5 +4,6 @@
 - 💞️ I’m looking to collaborate on ...
 nothing, at the moment.
 - 📫 How to reach me 
-Discord: uzumaki🆖#5729
+Discord: Tempest🌊#5729 or on Twitter!
+@UzumakiBall
 
